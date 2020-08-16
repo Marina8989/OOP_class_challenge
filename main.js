@@ -13,21 +13,52 @@ class Vehicle{
 }
 
 class Car extends Vehicle{
-    constructor(make, model, year, numWheels = 4){
+    constructor(make, model, year){
         super(make, model, year);
-        this.numWheels = numWheels;
+        this.numWheels = 4;
     }
 }
 
 class Motorcycle extends Vehicle{
-     constructor(make, model, year, numWheels = 2,) {
+     constructor(make, model, year) {
          super(make, model, year);
-         this.numWheels = numWheels;
+         this.numWheels = 2;
      }
      revEngine() {
          return 'VROOM!!!';
      }
 }
+
+class Garage{
+    constructor(capacity){
+        this.vehicles = [];
+        this.capacity = capacity;
+    }
+
+    add(x) {
+       if(!(x instanceof Vehicle)) {
+            return 'Only vehicles are allowed in here!';
+       }
+       if(this.vehicles.length >= this.capacity) {
+           return 'Sorry we\'re are full.';
+       }
+       this.vehicles.push(x);
+       return 'Vehicle added!';
+    }
+}
+ let garage = new Garage(2);
+console.log(garage.vehicles);
+console.log(garage.add(new Car('Hyundai', 'Elantra', 2015)));
+console.log(garage.vehicles);
+console.log(garage.add('Taco'));
+console.log(garage.add(new Motorcycle('Honda', 'Nighthawk', 2000)));
+console.log(garage.vehicles);
+
+console.log(garage.add(new Motorcycle('Honda', 'Nighthawk', 2000)));
+
+console.log(garage.vehicles);
+
+
 
 let myFirstMotorcycle = new Motorcycle('Honda', 'Nighthawk', 2000);
 console.log(myFirstMotorcycle.toString());
