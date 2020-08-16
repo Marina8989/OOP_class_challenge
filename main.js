@@ -18,6 +18,24 @@ class Car extends Vehicle{
         this.numWheels = numWheels;
     }
 }
+
+class Motorcycle extends Vehicle{
+     constructor(make, model, year, numWheels = 2,) {
+         super(make, model, year);
+         this.numWheels = numWheels;
+     }
+     revEngine() {
+         return 'VROOM!!!';
+     }
+}
+
+let myFirstMotorcycle = new Motorcycle('Honda', 'Nighthawk', 2000);
+console.log(myFirstMotorcycle.toString());
+console.log(myFirstMotorcycle.honk());
+console.log(myFirstMotorcycle.revEngine());
+console.log(myFirstMotorcycle.numWheels);
+
+
 let myFirstCar = new Car('Toyota', 'Corolla', 2005);
 console.log(myFirstCar.toString());
 console.log(myFirstCar.honk());
